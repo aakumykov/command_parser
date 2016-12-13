@@ -20,11 +20,13 @@ class CommandParser
       pch = strtok (NULL, delimiter);
     }
   
-    String cmd2[cmd_index];
     Serial.println("cmd_index: "+String(cmd_index));
     
     for (int i=0; i<cmd_index; i++) {
       Serial.println(String(i)+": "+String(cmd[i]));
     }
   }
-}
+
+  private:
+    char* delimiter;
+};

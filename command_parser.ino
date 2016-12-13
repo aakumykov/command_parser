@@ -1,12 +1,15 @@
 #include "CommandParser.cpp"
 
+CommandParser cmdParser(",");
+
 void setup() {
   Serial.begin(9600); while(!Serial);
 
-  qwerty("command;data;3245234;23525;", ";");
+  cmdParser.parse("command,0,0,0,100,100,100,100,0");
+//  Serial.println("-------------");
+//  cmdParser.parse("command:0,0,0,100,100,100,100,0,");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
   
 }
