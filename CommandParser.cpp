@@ -9,23 +9,27 @@ class CommandParser
     }
     
   void parse(char* inputData) {
-    char* pch;
+    char* token;
     String cmd[50];
-    int cmd_index = 0;
+    int data_counter = 0;
     
-    pch = strtok(inputData, command_delimiter);
-    while (pch != NULL)
+    this->the_command = strtok(inputData, this->command_delimiter);
+      Serial.println("command: "+String(this->the_command) );
+
+    token = strtok(NULL, this->data_delimiter);
+    while (token != NULL)
     {
-      cmd[cmd_index++] = String(pch);
-        //Serial.println( String(pch) );
-      pch = strtok (NULL, command_delimiter);
+      cmd[data_counter++] = String(token);
+        Serial.println( "data token: "+String(token) );
+      token = strtok(NULL, this->data_delimiter);
     }
-  
-    Serial.println("cmd_index: "+String(cmd_index));
+
+      Serial.println("-------------");
+      Serial.println("data count: "+String(data_counter));
     
-    for (int i=0; i<cmd_index; i++) {
-      Serial.println(String(i)+": "+String(cmd[i]));
-    }
+//    for (int i=0; i<data_counter; i++) {
+//      Serial.println(String(i)+": "+String(cmd[i]));
+//    }
   }
 
   String command(){
@@ -40,6 +44,6 @@ class CommandParser
     char* command_delimiter;
     char* data_delimiter;
 
-    String the_command;
+    char* the_command;
     String* the_data;
 };
