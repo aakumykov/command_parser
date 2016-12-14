@@ -9,6 +9,8 @@ class CommandParser
     }
     
   void parse(char* inputData) {
+    Serial.println("CommandParser.parse('"+String(inputData)+"')");
+    
     char* token;
     String cmd[50];
     int data_counter = 0;
