@@ -9,25 +9,36 @@ class CommandParser
     }
     
   void parse(char* inputData) {
-    Serial.println("CommandParser.parse('"+String(inputData)+"')");
+    //Serial.println("CommandParser.parse('"+String(inputData)+"')");
     
     char* token;
     String cmd[50];
     int data_counter = 0;
     
     this->the_command = strtok(inputData, this->command_delimiter);
-      Serial.println("command: "+String(this->the_command) );
+      //Serial.println("command: "+String(this->the_command) );
 
     token = strtok(NULL, this->data_delimiter);
     while (token != NULL)
     {
       cmd[data_counter++] = String(token);
-        Serial.println( "data token: "+String(token) );
+        Serial.println(data_counter);
+        Serial.println("token: "+String(token));
+        //Serial.println( "data token: "+String(token) );
       token = strtok(NULL, this->data_delimiter);
     }
 
-      Serial.println("-------------");
-      Serial.println("data count: "+String(data_counter));
+      //Serial.println("-------------");
+      Serial.println("~~~~~~~~~~~~~");
+      //Serial.println("data count: "+String(data_counter));
+
+//      Serial.println(String(data_counter));
+//      Serial.println(String(data_counter*2));
+//      Serial.println(String(data_counter*3));
+
+      Serial.println(data_counter);
+      Serial.println(data_counter*2);
+      Serial.println(data_counter*3);
     
 //    for (int i=0; i<data_counter; i++) {
 //      Serial.println(String(i)+": "+String(cmd[i]));
