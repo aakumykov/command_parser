@@ -7,9 +7,7 @@ void setup() {
   Serial.println("setup()");
   delay(100);
 
-  cmdParser.parse("command:1,22,333,4444,55555,6666,777,88,1,qwerty");
-//  Serial.println("-------------");
-//  cmdParser.parse("command:0,0,0,100,100,100,100,0,");
+  cmdParser.parse("command:11,22,33");
 }
 
 void loop() {

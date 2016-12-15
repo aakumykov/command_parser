@@ -9,47 +9,32 @@ class CommandParser
     }
     
   void parse(char* inputData) {
-    //Serial.println("CommandParser.parse('"+String(inputData)+"')");
-    
     char* token;
-    String cmd[50];
-    int data_counter = 0;
+    int a_size = 3;
+    int* data_storage = new int[a_size];
     
     this->the_command = strtok(inputData, this->command_delimiter);
-      //Serial.println("command: "+String(this->the_command) );
+    Serial.println("the_command: "+String(this->the_command));
 
-    token = strtok(NULL, this->data_delimiter);
-    while (token != NULL)
-    {
-      cmd[data_counter++] = String(token);
-        Serial.println(data_counter);
-        Serial.println("token: "+String(token));
-        //Serial.println( "data token: "+String(token) );
       token = strtok(NULL, this->data_delimiter);
-    }
 
-      //Serial.println("-------------");
-      Serial.println("~~~~~~~~~~~~~");
-      //Serial.println("data count: "+String(data_counter));
-
-//      Serial.println(String(data_counter));
-//      Serial.println(String(data_counter*2));
-//      Serial.println(String(data_counter*3));
-
-      Serial.println(data_counter);
-      Serial.println(data_counter*2);
-      Serial.println(data_counter*3);
-    
-//    for (int i=0; i<data_counter; i++) {
-//      Serial.println(String(i)+": "+String(cmd[i]));
-//    }
+      for (int i=0; i<a_size; i++) {
+        data_storage[i] = atoi(token);
+        
+        //Serial.println( "t: "+String(token)+ ", int: "+String(int(token))+ ", atoi: " + String(atoi(token)) );
+        //Serial.println( String(i) + ": " + String(token) + "|" + String(token==NULL) );
+        
+        Serial.println( String(i) + ": " + String(data_storage[i]) + "|" + String(token==NULL) );
+        
+        token = strtok(NULL, this->data_delimiter);
+      }
   }
 
   String command(){
     return this->the_command;
   }
 
-  String* data() {
+  int* data() {
     return this->the_data;
   }
 
@@ -58,5 +43,6 @@ class CommandParser
     char* data_delimiter;
 
     char* the_command;
-    String* the_data;
+    int* the_data = new int;
 };
+
