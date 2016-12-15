@@ -14,7 +14,10 @@ void setup() {
   int count = cmdParser.count();
 
   //Serial.println("command: "+String(command)); //раскомментирование этой строки нарушает (?) работу
-  Serial.println(command);
+  
+  Serial.print("command: "); // а эта комбинация НЕ нарушает (1)
+  Serial.println(command); // а эта комбинация НЕ нарушает (2)
+  
   Serial.println("---------");
   for (int i=0; i<count; i++) {
     Serial.println(data[i]);
