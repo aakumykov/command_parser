@@ -35,6 +35,8 @@ class CommandParser
         token = strtok(NULL, this->data_delimiter);
       }
 
+      this->the_count = counter;
+
       Serial.println("~~~~~~~~~");
       Serial.println("counter: "+String(counter));
 
@@ -48,6 +50,10 @@ class CommandParser
     return this->the_command;
   }
 
+  int count() {
+    return this->the_count;
+  }
+
   int* data() {
     return this->the_data;
   }
@@ -57,6 +63,7 @@ class CommandParser
     char* data_delimiter;
 
     char* the_command;
+    int the_count = 0;
     int* the_data = new int;
 };
 
