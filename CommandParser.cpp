@@ -14,21 +14,20 @@ class CommandParser
     int* data_storage = new int;
     
     this->the_command = strtok(inputData, this->command_delimiter);
-    Serial.println("the_command: "+String(this->the_command));
+    //Serial.println("the_command: "+String(this->the_command));
 
       token = strtok(NULL, this->data_delimiter);
 
       while (token != NULL) {
 
         this->the_data[counter] = atoi(token);
-        data_storage[counter] = atoi(token); // если закомментировать, в the_data попадают кривые данные
+        //data_storage[counter] = atoi(token); // если закомментировать, в the_data попадают кривые данные
         
-
-        Serial.print( String(counter) );
-        //Serial.print(": " + String(data_storage[counter]));
-        Serial.print("| " + String(this->the_data[counter]));
-        Serial.print("| " + String(token==NULL) );
-        Serial.println("");
+//        Serial.print( String(counter) );
+//        //Serial.print(": " + String(data_storage[counter]));
+//        Serial.print("| " + String(this->the_data[counter]));
+//        Serial.print("| " + String(token==NULL) );
+//        Serial.println("");
         
         counter++;
         
@@ -37,16 +36,16 @@ class CommandParser
 
       this->the_count = counter;
 
-      Serial.println("~~~~~~~~~");
-      Serial.println("counter: "+String(counter));
-
-      for (int i=0; i<counter; i++) {
-        Serial.println(this->the_data[i]);
-        Serial.println(data_storage[i]);
-      }
+//      Serial.println("~~~~~~~~~");
+//      Serial.println("counter: "+String(counter));
+//
+//      for (int i=0; i<counter; i++) {
+//        Serial.println(this->the_data[i]);
+//        Serial.println(data_storage[i]);
+//      }
   }
 
-  String command(){
+  char* command(){
     return this->the_command;
   }
 
