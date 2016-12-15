@@ -4,8 +4,6 @@ CommandParser cmdParser(":", ",");
 
 void setup() {
   Serial.begin(9600); while(!Serial);
-  Serial.println("setup()");
-  delay(100);
 
   cmdParser.parse("command:11,22,33");
   
@@ -15,13 +13,14 @@ void setup() {
 
   //Serial.println("command: "+String(command)); //раскомментирование этой строки нарушает (?) работу
   
-  Serial.print("command: "); // а эта комбинация НЕ нарушает (1)
-  Serial.println(command); // а эта комбинация НЕ нарушает (2)
-  
-  Serial.println("---------");
-  for (int i=0; i<count; i++) {
-    Serial.println(data[i]);
-  }
+  Serial.print("command: ");
+  Serial.println(command);
+
+  Serial.print("count: ");
+  Serial.println(count);
+
+  Serial.println("data: ");
+  for (int i=0; i<count; i++) { Serial.println(data[i]); }
 }
 
 void loop() {
