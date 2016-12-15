@@ -19,9 +19,10 @@ class CommandParser
       token = strtok(NULL, this->data_delimiter);
 
       while (token != NULL) {
-        
-        data_storage[counter] = atoi(token); // если закомментировать, в the_data попадают кривые данные
+
         this->the_data[counter] = atoi(token);
+        data_storage[counter] = atoi(token); // если закомментировать, в the_data попадают кривые данные
+        
 
         Serial.print( String(counter) );
         //Serial.print(": " + String(data_storage[counter]));
@@ -32,6 +33,14 @@ class CommandParser
         counter++;
         
         token = strtok(NULL, this->data_delimiter);
+      }
+
+      Serial.println("~~~~~~~~~");
+      Serial.println("counter: "+String(counter));
+
+      for (int i=0; i<counter; i++) {
+        Serial.println(this->the_data[i]);
+        Serial.println(data_storage[i]);
       }
   }
 
