@@ -1,6 +1,6 @@
 #include "CommandParser.cpp"
 
-CommandParser cmdParser(":", ",");
+CommandParser cmdParser;
 
 void setup() {
   Serial.begin(9600); while(!Serial);
@@ -9,7 +9,7 @@ void setup() {
   
   char* command = cmdParser.command();
   int* data = cmdParser.data();
-  int count = cmdParser.count();
+  int len = cmdParser.length();
 
   //Serial.println("command: "+String(command)); //раскомментирование этой строки нарушает (?) работу
   
@@ -17,10 +17,10 @@ void setup() {
   Serial.println(command);
 
   Serial.print("count: ");
-  Serial.println(count);
+  Serial.println(len);
 
   Serial.println("data: ");
-  for (int i=0; i<count; i++) { Serial.println(data[i]); }
+  for (int i=0; i<len; i++) { Serial.println(data[i]); }
 }
 
 void loop() {

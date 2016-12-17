@@ -3,7 +3,7 @@
 class CommandParser
 {
   public:
-    CommandParser(char* command_delimiter, char* data_delimiter){
+    CommandParser(char* command_delimiter = ":", char* data_delimiter = ","){
       this->command_delimiter = command_delimiter;
       this->data_delimiter = data_delimiter;
     }
@@ -23,7 +23,7 @@ class CommandParser
     return this->the_command;
   }
 
-  int count() {
+  int length() {
     return this->the_counter;
   }
 
@@ -39,5 +39,4 @@ class CommandParser
     int the_counter = 0;
     int* the_data = new int;
 };
-
 
